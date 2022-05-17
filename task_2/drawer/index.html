@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .drawer__wrapper {
+      display: grid;
+      grid-template-rows: repeat(7, 1fr);
+      grid-template-columns: repeat(5, 1fr);
+      width: min-content;
+    }
+    .drawer__item {
+      border: 1px solid black;
+      width: 50px;
+      height: 50px;
+    }
+    .drawer__item.drawer__item-active {
+      background-color: black;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrapper" class="drawer__wrapper">
+    <div class="drawer__item" id="0"></div>    
+    <div class="drawer__item" id="1"></div>
+    <div class="drawer__item" id="2"></div>
+    <div class="drawer__item" id="3"></div>
+    <div class="drawer__item" id="4"></div>
+    <div class="drawer__item" id="5"></div>
+    <div class="drawer__item" id="6"></div>
+    <div class="drawer__item" id="7"></div>
+    <div class="drawer__item" id="8"></div>
+    <div class="drawer__item" id="9"></div>
+    <div class="drawer__item" id="10"></div>
+    <div class="drawer__item" id="11"></div>
+    <div class="drawer__item" id="12"></div>
+    <div class="drawer__item" id="13"></div>
+    <div class="drawer__item" id="14"></div>
+    <div class="drawer__item" id="15"></div>
+    <div class="drawer__item" id="16"></div>
+    <div class="drawer__item" id="17"></div>
+    <div class="drawer__item" id="18"></div>
+    <div class="drawer__item" id="19"></div>
+    <div class="drawer__item" id="20"></div>
+    <div class="drawer__item" id="21"></div>
+    <div class="drawer__item" id="22"></div>
+    <div class="drawer__item" id="23"></div>
+    <div class="drawer__item" id="24"></div>
+    <div class="drawer__item" id="25"></div>
+    <div class="drawer__item" id="26"></div>
+    <div class="drawer__item" id="27"></div>
+    <div class="drawer__item" id="28"></div>
+    <div class="drawer__item" id="29"></div>
+    <div class="drawer__item" id="30"></div>
+    <div class="drawer__item" id="31"></div>
+    <div class="drawer__item" id="32"></div>
+    <div class="drawer__item" id="33"></div>
+    <div class="drawer__item" id="34"></div>
+  </div>
+  <button id="getbutton">GET</button>
+  <script>
+    const result = Array(35).fill(0)
+    document.getElementById('wrapper').addEventListener('click', (e) => {
+      const index = event.target.id
+      event.target.classList.toggle('drawer__item-active')
+      result[index] = result[index] === 0 ? 1 : 0
+    })
+    document.getElementById('getbutton').addEventListener('click', () => {
+      navigator.clipboard.writeText(JSON.stringify(result))
+    })
+  </script>
+</body>
+</html>
